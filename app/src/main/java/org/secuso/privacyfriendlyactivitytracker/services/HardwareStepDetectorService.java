@@ -62,10 +62,6 @@ public class HardwareStepDetectorService extends AbstractStepDetectorService {
     @SuppressLint("InlinedApi")
     @Override
     public int getSensorType() {
-        if (AndroidVersionHelper.supportsStepDetector(getPackageManager())) {
-            return Sensor.TYPE_STEP_DETECTOR;
-        } else {
-            return 0;
-        }
+        return AndroidVersionHelper.getStepDetectorType(getPackageManager());
     }
 }
